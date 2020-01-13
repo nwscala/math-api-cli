@@ -1,7 +1,8 @@
 class Number
     attr_accessor :text, :number, :found, :type
 
-    @@all = []
+    @@trivia = []
+    @@math = []
 
     def initialize(number_hash)
         number_hash.each do |key, value|
@@ -11,10 +12,18 @@ class Number
     end
 
     def save
-        @@all << self
+        if self.type == "trivia"
+            @@trivia << self
+        elsif self.type == "math"
+            @@math << self
+        end
     end
 
-    def self.all
-        @@all
+    def self.trivia
+        @@trivia
+    end
+
+    def self.math
+        @@math
     end
 end
